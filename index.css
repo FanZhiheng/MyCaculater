@@ -1,0 +1,113 @@
+:root {
+    --bottom: rgb(252, 154, 25);
+    --right: rgb(199, 113, 0);
+    --bacground: rgba(204, 185, 185, 0.5);
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("./srcs/html-color-codes-color-tutorials-hero-00e10b1f.jpg");
+    background-size:cover;
+    overflow: hidden;
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.screen {
+    width: 90%;
+    height: 10%;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 2px 2px 1px rgb(112, 90, 90);
+    text-align: center;
+    line-height: 0.5vh;
+}
+
+p {
+    font-size: 5vh;
+}
+.buttonArea {
+    display: flex;
+    width: 90%;
+    height: 85%;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.numButtons, .opButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background: var(--bacground);
+    border-radius: 5px;
+    position: relative;
+}
+
+.numButtons {
+    width: 60%;
+    height: 100%;
+}
+.top, .middle, .bottom {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 33%;
+}
+.opButtons {
+    width: 25%;
+    height: 100%;
+
+}
+
+button {
+    border: none;
+    border-bottom: 5px solid var(--bottom);
+    border-right: 5px solid var(--right);
+    outline: none;
+    transition: 0.05s;
+}
+
+button:active {
+    border-bottom: 0px solid var(--bottom);
+    border-right: 0px solid var(--right);
+    font-size: 8vh;
+}
+
+.num {
+    width: 20%;
+    height: 48%;
+    font-size: 6vh;
+    border-radius: 20px;
+}
+.op{
+    width: 48%;
+    height: 15%;
+    font-size: 6vh;
+    border-radius: 20px;
+}
+
+/* @keyframes click {
+    from {
+        border-bottom: 5px solid rgb(0, 197, 247);
+        border-right: 5px solid rgb(0, 82, 102);
+    } 
+    to {
+        border-bottom: 0px solid rgb(0, 197, 247);
+        border-right: 0px solid rgb(0, 82, 102);
+    }
+} */
