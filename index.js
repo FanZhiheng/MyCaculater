@@ -2,8 +2,8 @@ console.log('成功')
 
 let body = document.body
 let screen = document.getElementsByTagName('p')[0]
-let currentNum = undefined
-let nextNum = undefined
+let currentNum = ''
+let nextNum = ''
 let result = undefined
 let combo = false
 let computeReady = false
@@ -16,13 +16,21 @@ body.addEventListener('click', function (e) {
     if (target.className === 'num') {
         console.log(combo)
         if (combo === true) {
-            screen.innerHTML += String(target.id)
-            nextNum = parseFloat(screen.innerHTML)
+            nextNum += target.id
+            nextNum = parseFloat(nextNum)
+            screen.innerHTML = nextNum
+            // screen.innerHTML += String(target.id)
+            // nextNum = parseFloat(screen.innerHTML)
             console.log("获取2号数值" + nextNum)
             computeReady = true
+            
         } else {
-            screen.innerHTML += String(target.id)
-            currentNum = parseFloat(screen.innerHTML)
+            currentNum += target.id
+            currentNum = parseFloat(currentNum)
+            screen.innerHTML = currentNum
+
+            // screen.innerHTML += String(target.id)
+            // currentNum = parseFloat(screen.innerHTML)
             console.log("获取1号数值")
         }
 
@@ -54,30 +62,30 @@ body.addEventListener('click', function (e) {
         screen.innerHTML = result
         combo = false
         computeReady = false
-        nextNum = undefined
+        nextNum = ''
     } else if (target.className === 'op') {
         //console.log('in op')
         //console.log(nextNum)
-        if (currentNum !== undefined && nextNum !== undefined) {
+        if (currentNum !== '' && nextNum !== '') {
             console.log("变量1和2都已存在")
             
             console.log('使用op号运算')
             switch(sign) {
                 case '+':
-                    screen.innerHTML = currentNum + nextNum
-                    currentNum = parseFloat(screen.innerHTML)
+                    result = currentNum + nextNum
+                    currentNum = result
                     break
                 case '-':
-                    screen.innerHTML = currentNum - nextNum
-                    currentNum = parseFloat(screen.innerHTML)
+                    result = currentNum - nextNum
+                    currentNum = result
                     break
                 case '*':
-                    screen.innerHTML = currentNum * nextNum
-                    currentNum = parseFloat(screen.innerHTML)
+                    result = currentNum * nextNum
+                    currentNum = result
                     break
                 case '/':
-                    screen.innerHTML = currentNum / nextNum
-                    currentNum = parseFloat(screen.innerHTML)
+                    result = currentNum / nextNum
+                    currentNum = result
                     break
             }
 
@@ -95,10 +103,10 @@ body.addEventListener('click', function (e) {
                     sign = '/'
                     break
             }
-            screen.innerHTML = ''
+            screen.innerHTML = result
             combo = true
             computeReady = false
-            nextNum = undefined
+            nextNum = ''
         } else {
             console.log("第二个变量还不存在")
             switch(target.id) {
@@ -116,7 +124,6 @@ body.addEventListener('click', function (e) {
                     break
             }
             combo = true
-            screen.innerHTML = ''
         }
         console.log(combo)
         //console.log(currentNum)
